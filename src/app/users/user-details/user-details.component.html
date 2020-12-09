@@ -1,0 +1,11 @@
+<button routerLink="/users">Back</button>
+<h1>User details</h1>
+<div *ngIf="user">
+  <h2>{{user.id}}</h2>
+  <h2>{{user.firstName}} {{user.lastName}}</h2>
+  <h2>{{user.address}}</h2>
+</div>
+
+<div *ngIf="!user">
+  <h2>Customer not found</h2>
+</div>
