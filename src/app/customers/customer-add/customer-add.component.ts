@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../shared/user.service";
+import {CustomerService} from "../../shared/customer.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.scss']
+  selector: 'app-customer-add',
+  templateUrl: './customer-add.component.html',
+  styleUrls: ['./customer-add.component.scss']
 })
-export class UserAddComponent implements OnInit {
+export class CustomerAddComponent implements OnInit {
 
-  userForm = new FormGroup({
+  customerForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     address: new FormControl('')
   });
 
-  constructor(private userService: UserService,
+  constructor(private customerService: CustomerService,
               private router: Router) { }
 
   ngOnInit() {}
 
   save() {
-    const user = this.userForm.value;
-    this.userService.addUser(user)
+    const user = this.customerForm.value;
+    this.customerService.addUser(user)
       .subscribe(() => {
       this.router.navigateByUrl('/users');
     });
