@@ -1,0 +1,48 @@
+.ng-valid {
+  border-color: red;
+}
+.error-block{
+  color: red;
+}
+
+.btn {
+  display: grid;
+  margin: auto;
+  position: center;
+  background-color: white;
+  font-size: 14px;
+  color: green;
+  border-color: green;
+  width: 150px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 30%;
+  padding-left: 35%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.btn:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.main-div{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

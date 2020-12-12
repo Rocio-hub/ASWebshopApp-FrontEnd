@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from "../../shared/customer.service";
+import {CustomerService} from "../../shared/services/customer-service/customer.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 

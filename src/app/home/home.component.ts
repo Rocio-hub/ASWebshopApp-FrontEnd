@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Customer} from "../shared/models/customer";
+import {CustomerService} from "../shared/services/customer-service/customer.service";
+import {AuthenticationService} from "../shared/services/auth-service/authentication.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'Animal Shelter Webshop - EASV2020';
-  constructor() { }
 
-  ngOnInit(): void {
+  customers: Customer[];
+  email: string;
+  errorMessage: string = '';
+
+  constructor(private customerService: CustomerService,
+              private authenticationService: AuthenticationService) {
+    this.email = authenticationService.getEmail();
   }
 
+  ngOnInit() {
+    this.customerService.getCustomers()
+      .subscribe(
+        cust => {
+          this.customers = cust;
+        },
+        error => {
+          this.errorMessage = error.message;
+        });
+  }
 }

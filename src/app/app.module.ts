@@ -8,27 +8,51 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomersListComponent } from "./customers/customers-list/customers-list.component";
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
 import { HttpClientModule } from "@angular/common/http";
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+/* Angular material */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './material.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {CustomerLoginComponent} from "./customers/customer-login/customer-login.component";
+import {AuthGuard} from "./_guards/auth.guard";
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
+import {MyCartComponent} from "./my-cart/my-cart.component";
+import {MyOrdersComponent} from "./my-orders/my-orders.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersListComponent,
     NavBarComponent,
     HomeComponent,
     CustomerDetailsComponent,
+    CustomersListComponent,
     CustomerAddComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    CustomerLoginComponent,
+    ProductListComponent,
+    MyCartComponent,
+    MyOrdersComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        BsDropdownModule,
+        AngularMaterialModule,
+    ],
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class AppModule { }
