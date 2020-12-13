@@ -5,4 +5,5 @@ export class Customer {
   address: string;
   email: string;
   password: string;
+  isAdmin: boolean;
 }

@@ -25,6 +25,7 @@
   </div>
   <div>
     <ul class="nav navbar-nav">
+
   <!--      <li *ngIf="!loggedIn()" class="nav-item">
           <a class="nav-link"
              routerLink="user/register"
@@ -43,8 +44,7 @@
       <!--//Cart-->
       <li *ngIf="getIsAuth()">
         <a class="nav-link"
-          routerlink="/my-cart"
-          routerLinkActive="active">
+           [routerLink]="['/mycart']">
           <i class="fas fa-shopping-cart"></i></a>
       </li>
 

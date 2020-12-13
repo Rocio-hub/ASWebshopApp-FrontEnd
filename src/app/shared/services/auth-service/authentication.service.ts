@@ -9,6 +9,7 @@ import { map } from "rxjs/operators";
 export class AuthenticationService {
 
   isLoggedIn: boolean = false;
+  idLogged: number;
 
   apiUrl = 'https://localhost:44363/api/token';
 
@@ -25,10 +26,14 @@ export class AuthenticationService {
         const token = response && response.token;
         if(token) {
           localStorage.setItem('currentCustomer', JSON.stringify({
-            email: email, token: token
+            id: response.id,
+            isAdmin: response.isAdmin,
+            email: email,
+            token: token,
           }));
      //     this.alertify.success('Login successful');
           this.isLoggedIn = true;
+          this.idLogged = response.id;
           return true;
         } else {
       //    this.alertify.error('Something went wrong');

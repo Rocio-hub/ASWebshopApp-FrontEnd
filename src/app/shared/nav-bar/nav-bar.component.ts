@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../services/auth-service/authentication.service";
+import {ProductListComponent} from "../../products/product-list/product-list.component";
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,16 +9,12 @@ import {AuthenticationService} from "../services/auth-service/authentication.ser
 })
 export class NavBarComponent implements OnInit {
 
-  items: string[] = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
 
   isLoggedIn: boolean;
   loggedCustomer: string;
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService
+              ) { }
 
   ngOnInit() {
   }

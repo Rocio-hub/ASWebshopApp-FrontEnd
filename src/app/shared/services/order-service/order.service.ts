@@ -14,7 +14,7 @@ export class OrderService {
 
   //CRUD
 
-  getAllOrders(): Observable<Order[]>{
-    return this.http.get<Order[]>(this.apiUrl);
+  getAllOrders(customerId: number): Observable<Order[]>{
+    return this.http.get<Order[]>(this.apiUrl+'/'+customerId);
   }
 }

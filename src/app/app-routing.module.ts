@@ -9,8 +9,8 @@ import {CustomerUpdateComponent} from "./customers/customer-update/customer-upda
 import {ProductListComponent} from "./products/product-list/product-list.component";
 import {CustomerLoginComponent} from "./customers/customer-login/customer-login.component";
 import {AuthGuard} from "./_guards/auth.guard";
-import {MyCartComponent} from "./my-cart/my-cart.component";
 import {MyOrdersComponent} from "./my-orders/my-orders.component";
+import {MyCartComponent} from "./my-cart/my-cart.component";
 
 const routes: Routes = [
   {path:'', component: HomeComponent, canActivate: [AuthGuard] },
@@ -20,7 +20,8 @@ const routes: Routes = [
   {path:'customer-update/:id', component: CustomerUpdateComponent},
   {path:'products/:productType', component: ProductListComponent},
   {path:'login', component: CustomerLoginComponent},
-  {path:'orders', component: MyOrdersComponent}
+  {path:'orders', component: MyOrdersComponent},
+  {path:'mycart', component: MyCartComponent}
 ]
 
 @NgModule({

@@ -4,6 +4,7 @@ import { ProductService } from "../../shared/services/product-service/product.se
 import {FormControl, FormGroup, NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {switchMap, take, tap} from "rxjs/operators";
+import {MyCartComponent} from "../../my-cart/my-cart.component";
 
 @Component({
   selector: 'app-product-list',
@@ -13,10 +14,12 @@ import {switchMap, take, tap} from "rxjs/operators";
 export class ProductListComponent implements OnInit {
 
   products: Product[];
+  prods: Product[] = [];
+  numberOfProductsInCart: number = 0;
   loading: boolean;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute){ }
 
   ngOnInit(): void {
   this.refresh();
@@ -38,8 +41,25 @@ export class ProductListComponent implements OnInit {
   });
   }
 
-  refresh(){
 
+
+  refresh(){
+//nothing
   }
+
+  addToCart(prodToAdd: Product) {
+  this.prods.push(prodToAdd);
+      localStorage.setItem("myCartList", JSON.stringify(this.prods));
+  }
+
+
+ /* addToCart(product: Product){
+    localStorage.setItem('selectedProduct' + ++this.numberOfProductsInCart, JSON.stringify({
+      id: product.id,
+      name: product.name,
+      type: product.typeName,
+      price: product.price,
+    }));
+  } */
 
 }

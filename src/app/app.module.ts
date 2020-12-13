@@ -20,8 +20,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {CustomerLoginComponent} from "./customers/customer-login/customer-login.component";
 import {AuthGuard} from "./_guards/auth.guard";
 import {BsDropdownModule} from "ngx-bootstrap/dropdown";
-import {MyCartComponent} from "./my-cart/my-cart.component";
 import {MyOrdersComponent} from "./my-orders/my-orders.component";
+import {MyCartComponent} from "./my-cart/my-cart.component";
 
 
 @NgModule({
@@ -35,8 +35,8 @@ import {MyOrdersComponent} from "./my-orders/my-orders.component";
     CustomerUpdateComponent,
     CustomerLoginComponent,
     ProductListComponent,
-    MyCartComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    MyCartComponent
   ],
     imports: [
         BrowserModule,
