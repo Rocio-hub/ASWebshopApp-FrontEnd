@@ -11,7 +11,8 @@ export class AuthenticationService {
   isLoggedIn: boolean = false;
   idLogged: number;
 
-  apiUrl = 'https://localhost:44363/api/token';
+  //apiUrl = 'https://localhost:44363/api/token';
+  apiUrl ='http://as-webshop-rtfft-easv.azurewebsites.net/api/token';
 
   constructor(private http: HttpClient) { }
 
@@ -55,16 +56,19 @@ export class AuthenticationService {
     return currentCustomer && currentCustomer.email;
   }
 
+  getIsAdmin(): boolean{
+    const currentCustomer = JSON.parse(localStorage.getItem('currentCustomer'));
+    return currentCustomer && currentCustomer.isAdmin;
+  }
+
   //remove the current user from localstorage
   logout(): void{
     this.isLoggedIn = false;
     localStorage.removeItem('currentCustomer');
   }
 
-  isAuth(): boolean{
+  getIsAuth(): boolean{
     return this.isLoggedIn;
   }
-
-
 
 }

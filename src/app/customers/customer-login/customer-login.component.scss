@@ -1,48 +1,36 @@
-.ng-valid {
-  border-color: red;
-}
-.error-block{
-  color: red;
+@import url('https://fonts.googleapis.com/css2?family=Allan&display=swap');
+
+
+.btn-primary{
+  background-color: #6648b1;
+  border: 1px solid #563d7c;
 }
 
-.btn {
-  display: grid;
-  margin: auto;
-  position: center;
-  background-color: white;
-  font-size: 14px;
-  color: green;
-  border-color: green;
-  width: 150px;
-  text-align: center;
-  transition-duration: 0.4s;
-  overflow: hidden;
-  cursor: pointer;
+btn-primary:hover{
+  background-color: #563d7c;
+  border: 1px solid #6648b1;
+  margin-bottom: 1rem;
 }
 
-.btn:after {
-  content: "";
-  background: #f1f1f1;
-  display: block;
-  position: absolute;
-  padding-top: 30%;
-  padding-left: 35%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
+.card-header{
+  background-color: #0fa3b9;
+  font-size: 25px;
+  font-family: Allan;
+  font-weight: bold;
 }
 
-.btn:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
 
-.main-div{
+.main-div {
   height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
 }
+
+.error{
+  font-size: 15px;
+}
+
+
+

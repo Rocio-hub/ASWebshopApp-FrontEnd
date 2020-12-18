@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://as-webshop-rtlft-easv.azurewebsites.net'
 };

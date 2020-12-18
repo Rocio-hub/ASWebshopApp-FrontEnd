@@ -1,8 +1,59 @@
-hola
-<br>
-<div *ngFor="let product of prods" class = "shadow-lg col-sm-4 p-3">
-  {{product.id}}
-  {{product.name}}
-  {{product.typeName}}
-  {{product.price}}
+<body>
+<div *ngIf ="isLogged">
+
+  <div class="container-fluid padding">
+    <ngb-accordion>
+      <ngb-panel title="Your products">
+        <ng-template ngbPanelContent>
+          <div *ngFor="let product of prods" class = "shadow-lg col-sm-4 p-3">
+            <li>Product: {{product.name}}</li>
+            <li>Type: {{product.typeName}}</li>
+            <li>Price: {{product.price}} kr.</li>
+          </div>
+          <br>
+        <div *ngIf="prodInCart">
+        <button type="button" class="btn btn-primary" (click)="discAllProducts()">Discard all products</button>
+        </div>
+        <div class="emptyCart" *ngIf="!prodInCart">
+          <p>Your cart is empty</p>
+        </div>
+        </ng-template>
+      </ngb-panel>
+
+    <ngb-panel title="Your address">
+      <ng-template ngbPanelContent>
+        <form [formGroup]="delivAddressForm">
+          <label>Delivery address:</label>
+            <input type="text" formControlName="delivAddress"><br><br>
+        </form>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel title="Payment">
+      <ng-template ngbPanelContent>
+        <div class="" *ngIf="sum>0">
+          <p>The total price is: {{sum}} kr.</p>
+          <button class="btn btn-primary" (click)="confirmOrder()">Confirm payment</button>
+        </div>
+        <div class="" *ngIf="!sum>0">
+          There's nothing on your cart, but you still can help!
+          <button class="btn btn-primary" [disabled]>Give donation</button>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
 </div>
+</div>
+
+<div *ngIf ="!isLogged">
+  Nice try...
+</div>
+
+</body>
+
+
+
+
+
+

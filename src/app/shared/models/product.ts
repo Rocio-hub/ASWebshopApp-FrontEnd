@@ -3,5 +3,5 @@ export class Product {
   name: string;
   typeName: string;
   price: number;
-  image?;
+  imageUrl: string;
 }

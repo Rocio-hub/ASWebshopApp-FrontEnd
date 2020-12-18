@@ -1,20 +1,30 @@
-<!--<div class ="row">
-    <div class = "card-img-wrapper">
-      <img *ngIf="product.Image" class = "card-img-top" src="assets/img/{{product.image}}.jpg">
-  <div *ngFor="let order of orders" class = "shadow-lg col-sm-4 p-3">
-    <div class="card">
-      <h1>{{order.id}}</h1>
-
+<body>
+<div class="container-fluid padding">
+<div *ngIf ="isLogged">
+  <div class="row">
+    <div class="card" *ngFor="let order of orders">
+      <div class="shadow-none p-4 mb-4 bg-light">
+        <div class="px-4 py-3">
+          <h5 class="card-title" align="center">Order id: {{order.id}}</h5>
+            <p class="card-text">delivery address: {{order.deliveryAddress}}</p>
+            <p class="card-text">delivery date: {{order.deliveryDate | date: 'shortDate' }}</p>
+            <p class="card-text">order date: {{order.orderDate | date: 'shortDate' }}</p>
+            <p class="card-text">total price: {{order.totalPrice}} kr.</p>
+              <div class="card" *ngFor="let product of order.products">
+                <div class="products">
+                <p class="card-text">Name: {{product.name}}</p>
+                <p class="card-text">Type: {{product.typeName}}</p>
+                <p class="card-text">Price: {{product.price}}</p>
+                </div>
+              </div>
+        </div>
+      </div>
     </div>
   </div>
-</div> -->
-<ul>
-<div *ngFor="let order of orders">
-  id: {{order.id}}
-  delivery address: {{order.deliveryAddress}}
-  delivery date: {{order.deliveryDate}}
-  total price: {{order.totalPrice}}
-
 </div>
-</ul>
 
+<div *ngIf ="!isLogged">
+  Please, log in in order to access your cart.
+</div>
+</div>
+</body>

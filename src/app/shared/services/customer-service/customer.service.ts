@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Customer} from "../../models/customer";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
 import { AuthenticationService } from "../auth-service/authentication.service";
 
 const httpOptions = {
@@ -19,25 +17,26 @@ export class CustomerService {
   apiUrl = 'https://localhost:44363/api/customers';
 
   constructor(private http: HttpClient,
-              private authenticationService: AuthenticationService) {  }
+              private authenticationService: AuthenticationService) {
+  }
 
 
-
+}
   //CRUD
 
-  getCustomers(): Observable<Customer[]>{
+ /* getCustomers(): Observable<Customer[]>{
     httpOptions.headers =
     httpOptions.headers.set('Authorization', 'Bearer' + this.authenticationService.getToken());
     //get users from api
     return this.http.get<Customer[]>(this.apiUrl, httpOptions);
   }
-
+/*
    addUser(customer: Customer): Observable<Customer>{
      return this.http.post<Customer>(this.apiUrl, customer);
    }
+*/
 
-
-  getCustomerById(id: number): Observable<Customer>{
+/*  getCustomerById(id: number): Observable<Customer>{
     return this.http.get<Customer>(this.apiUrl+'/'+id);
   }
 
@@ -50,3 +49,4 @@ export class CustomerService {
   }
 
 }
+*/

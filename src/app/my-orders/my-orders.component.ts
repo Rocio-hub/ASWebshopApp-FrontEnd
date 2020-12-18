@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
 import {Order} from "../shared/models/order";
 import {OrderService} from "../shared/services/order-service/order.service";
 import {AuthenticationService} from "../shared/services/auth-service/authentication.service";
-
+import {Customer} from "../shared/models/customer";
 
 @Component({
   selector: 'my-orders',
@@ -14,11 +13,22 @@ import {AuthenticationService} from "../shared/services/auth-service/authenticat
 export class MyOrdersComponent implements OnInit {
   idLogged: number;
   orders: Order[];
+  customerLoggedIn: Customer;
+  isLogged: boolean = false;
+
   constructor(private orderService: OrderService,
               private route: ActivatedRoute,
               private authenticationService: AuthenticationService) {  }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem('currentCustomer') === null){
+      this.isLogged = false;
+    }
+    else{
+      this.customerLoggedIn = JSON.parse(localStorage.getItem('currentCustomer'));
+      this.isLogged = true;
+    }
     this.getAllOrders();
   }
 
@@ -26,10 +36,9 @@ export class MyOrdersComponent implements OnInit {
   getAllOrders(){
     this.idLogged = this.authenticationService.idLogged;
 //    console.log( localStorage.getItem(this.idLogged));
-    this.orderService.getAllOrders(this.idLogged) //(localStorage.getItem('id'))
+    this.orderService.getAllOrders(this.idLogged)
       .subscribe(listOfOrders => {
       this.orders = listOfOrders;
       });
   }
-
 }

@@ -10,7 +10,6 @@ export class AppComponent {
   ngOnInit(){
     localStorage.clear();
   }
-
 }
 
 

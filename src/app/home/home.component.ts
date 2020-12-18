@@ -16,18 +16,11 @@ export class HomeComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(private customerService: CustomerService,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService)
+  {
     this.email = authenticationService.getEmail();
   }
 
-  ngOnInit() {
-    this.customerService.getCustomers()
-      .subscribe(
-        cust => {
-          this.customers = cust;
-        },
-        error => {
-          this.errorMessage = error.message;
-        });
-  }
+  ngOnInit() {  }
+
 }
